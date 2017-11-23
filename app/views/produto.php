@@ -5,7 +5,7 @@
     $crud = new CrudProdutos();
 
     //seguranca
-    $codigo = filter_input(INPUT_GET, 'codigo', FILTER_VALIDATE_INT);
+    $codigo = filter_input(INPUT_GET, 'codigo', FILTER_VALIDATE_INT); //consulte os slides.
 
     $produto = ?;
 
