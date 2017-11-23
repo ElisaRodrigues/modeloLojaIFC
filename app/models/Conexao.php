@@ -14,7 +14,13 @@ class Conexao {
     const SENHA     = "?";
 
     public static function getConexao(){
-        $conexao = new PDO("mysql:host=".self::HOST.";dbname=".self::NOMEBANCO, self::USUARIO, self::SENHA);
+        
+        try{
+            $conexao = new PDO("mysql:host=".self::HOST.";dbname=".self::NOMEBANCO, self::USUARIO, self::SENHA);
+            $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }catch(PDOException $e){
+            die("Falhou a conexao ou ocorreu um erro banco: " . $e->getMessage()); 
+        }
 
         return $conexao;
     }
