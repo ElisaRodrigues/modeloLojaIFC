@@ -14,11 +14,17 @@ class Produto {
     public $nome;
     public $preco;
     public $categoria;
+    //estoque
 
-    public function __construct($codigo, $nome, $preco, $categoria){
-        $this->codigo = $codigo;
+    public function __construct($nome, $preco, $categoria){ //estoque
         $this->nome = $nome;
         $this->preco = $preco;
         $this->categoria = $categoria;
     }
+
+    public function estaDisponivel(){
+        // o estqoeu for maior que zero retorna disponivel
+        return "teste estoque";
+    }
+
 }
