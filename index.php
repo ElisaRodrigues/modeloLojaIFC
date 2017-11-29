@@ -69,12 +69,14 @@
                 <div class="card">
                     <img class="card-img-top" src="http://placehold.it/500x325" alt="">
                     <div class="card-body">
-                        <h4 class="card-title"><?= $prod['nome'] ?></h4>
-                        <p class="card-text"><?= $prod['preco'] ?></p>
+                        <h4 class="card-title"><?= $prod->nome ?></h4>
+                        <p class="card-text"><?= $prod->preco ?></p>
+                        <p class="card-text"><?= $prod->estaDisponivel() ?></p>
+
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
                     </div>
                     <div class="card-footer">
-                        <a href="app/views/produto.php?codigo=<?= $prod['codigo'] ?>" class="btn btn-ifc">veja +</a>
+                        <a href="app/views/produto.php?codigo=<?= $prod->id ?>" class="btn btn-ifc">veja +</a>
                     </div>
                 </div>
             </div>
