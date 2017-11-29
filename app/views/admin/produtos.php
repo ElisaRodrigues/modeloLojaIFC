@@ -5,10 +5,13 @@
 
     $listaProdutos = $crud->getProdutos();
 
+    $codigo = filter_input(type: INPUT_GET, variable_name 'codigo', file(FILTER_VALIDATE_INT);
+
+$produto =_?;
+
     ## !!ADICIONE AQUI O CABECALHO DA PAGINA
 
 ?>
-
 <!--Barra de busca-->
 <div class="row">
     <div class="col-md-12">

@@ -1,30 +1,37 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: JEFFERSON
- * Date: 09/11/2017
- * Time: 10:40
- */
+require_once __DIR__. '/Conexao.php';
 
-require_once "Conexao.php";
-
-class Produto {
-
+//lógica da 2 aqui
+class Produto
+{
     public $codigo;
-    public $nome;
+    public $titulo;
     public $preco;
     public $categoria;
-    //estoque
+    public $conexao;
+    public $quantidade_estoque;
+    public $estoque;
+    public $descricao;
 
-    public function __construct($nome, $preco, $categoria){ //estoque
-        $this->nome = $nome;
+    public function __construct($titulo, $preco, $categoria, $estoque){
+        $this->titulo = $titulo;
         $this->preco = $preco;
         $this->categoria = $categoria;
     }
 
+    public function setQuantidadeEstoque(int $quantidade_estoque)
+    {
+        $this->quantidade_estoque = $quantidade_estoque;
+        $quantidade_estoque = "SELECT quantidade_estoque From tb_produtos";
+    }
+
     public function estaDisponivel(){
-        // o estqoeu for maior que zero retorna disponivel
-        return "teste estoque";
+     if($this->estoque > 0){
+         return "disponivel";
+     } else{
+         return "o livro não está disponivel no momento";
+     }
+
     }
 
 }

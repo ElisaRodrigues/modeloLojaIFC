@@ -1,4 +1,5 @@
 ﻿<!-- ## !!ADICIONE O CABECALHO E O RODAPE PARA ESTA PAGINA -->
+<!-- ## !!ADICIONE O CABECALHO E O RODAPE PARA ESTA PAGINA -->
 <!-- Use o controladorProduto.php para encaminhar os dados do seu cadastro -->
 
 <h2>Cadastro de Produtos</h2>

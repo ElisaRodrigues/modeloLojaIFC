@@ -1,13 +1,15 @@
 <?php
 
-    require_once "?/CrudProdutos.php";
+    require_once __DIR__."/../models/CrudProdutos.php";
 
     $crud = new CrudProdutos();
 
     //seguranca
-    $codigo = filter_input(INPUT_GET, 'codigo', FILTER_VALIDATE_INT); //consulte os slides.
+    $codigo = filter_input(INPUT_GET, 'codigo', FILTER_VALIDATE_INT);
 
-    $produto = ?;
+    $produto = $crud->getProduto($codigo);
+
+    print_r($produto);
 
 ?>
 
@@ -34,7 +36,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="../../assets/imagens/logo.png" alt="" width="80px"></a>
+        <a class="navbar-brand" href="#"><img src="../../assets/imagens/livro.jpg" alt="" width="80px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -61,7 +63,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            <img src="../../assets/imagens/product-default.png" alt="" class="img-fluid">
+            <img src="../../assets/imagens/livro.jpg" alt="" class="img-fluid">
         </div>
 
         <div class="col-md-7">
@@ -72,15 +74,15 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <span class="badge badge-primary">mostre a categoria</span>
-                    <span class="badge badge-warning">mostre a disponibilidade</span>
+                    <span class="badge badge-primary"><?php $produto->categoria ?></span>
+                    <span class="badge badge-warning"><?php $produto->estaDisponivel() ?></span>
                 </div>
             </div>
             <!-- end row -->
 
             <div class="row description-wrapper">
                 <div class="col-md-12">
-                    <p class="description">Consectetur adipisicing elit. Accusantium ad, adipisci commodi delectus ea eius eligendi expedita in ipsum magnam modi mollitia nisi, obcaecati perspiciatis quae quo repellendus temporibus velit.
+                    <p class="description"> <?php $produto->descricao?>
                     </p>
                 </div>
             </div>
@@ -88,7 +90,7 @@
 
             <div class="row">
                 <div class="col-md-12 bottom-rule">
-                    <h2 class="product-price">mostre preco</h2>
+                    <h2 class="product-price"><?php $produto->preco ?></h2>
                 </div>
             </div>
             <!-- end row -->
