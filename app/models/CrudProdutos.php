@@ -24,17 +24,25 @@ class CrudProdutos {
         $this->conexao->exec($sql);
     }
 
-    public function buscarProduto(int $codigo){
-        $consulta = $this->conexao->query("SELECT * FROM tb_produtos WHERE codigo = $codigo");
-        $produto = $consulta->fetch(PDO::FETCH_ASSOC);
+    public function getProduto(int $codigo){
+        $consulta = $this->conexao->query("SELECT * FROM tb_produtos WHERE id = $codigo");
+        $produto = $consulta->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
 
-        return $produto;
+        return new Produto($produto['nome'], $produto['preco'], $produto['categoria']);
 
     }
 
     public function getProdutos(){
         $consulta = $this->conexao->query("SELECT * FROM tb_produtos");
-        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        $arrayProdutos = $consulta->fetchAll(PDO::FETCH_ASSOC);
+
+        //Fabrica de Produtos
+        $listaProdutos = [];
+        foreach ($arrayProdutos as $produto){
+            $listaProdutos[] = new Produto($produto['nome'], $produto['preco'], $produto['categoria']);
+        }
+
+        return $listaProdutos;
+
     }
 }
-
