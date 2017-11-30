@@ -10,8 +10,8 @@ require_once __DIR__. '/Produto.php';
     $this->conexao = Conexao::getConexao();
     }
         //cadastrar produto - questão 6
-        public function cadastrar(Produto $produto){
-            $sql = "INSERT INTO tb_produtos (titulo, preco, categoria) VALUES('$produto->titulo', $produto->preco, '$produto->categoria')";
+        public function salvar(Produto $produto){
+            $sql = "INSERT INTO tb_produtos (titulo, preco, categoria, quantidade_estoque) VALUES('$produto->titulo', $produto->preco, '$produto->categoria', '$this->$produto->quantidade_estoque')";
             $this->conexao->exec($sql);
 
         }
@@ -19,7 +19,7 @@ require_once __DIR__. '/Produto.php';
         public function getProduto(int $codigo){
             $consulta = $this->conexao->query("SELECT * FROM tb_produtos WHERE codigo = $codigo");
             $produto = $consulta->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
-            return new Produto($produto['nome'], $produto['preco'], $produto['categoria']);
+            return new Produto($produto['titulo'], $produto['preco'], $produto['categoria']);
         }
 
         public function getProdutos(){
@@ -35,11 +35,4 @@ require_once __DIR__. '/Produto.php';
 
         }
 
-        //editar produto - questão 7
-
-        //excluir produto - questão 8
-
 }
-
-$x = new CrudProdutos();
-$x->getProdutos();

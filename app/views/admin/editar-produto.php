@@ -1,5 +1,5 @@
 ﻿<!-- ## !!ADICIONE O CABECALHO E O RODAPE PARA A PAGINA -->
-
+<?php require_once "cabecalho.php"; ?>
 <h2>Editar Produtos</h2>
 <form action="" method="post">
     <div class="form-group">
@@ -29,3 +29,4 @@
     <button type="submit" class="btn btn-primary">Cadastrar</button>
 
 </form>
+<?require_once "rodape.php";

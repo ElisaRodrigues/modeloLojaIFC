@@ -79,7 +79,7 @@ $listaProdutos = $crud->getProdutos(); //lista dos produtos
                         <p class="card-text"><?= $produto->preco ?></p>
                         <p class="card-text"><?= $produto->estaDisponivel() ?></p>
 
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                        <p class="card-text"><?= $produto->descricao?></p>
                     </div>
                     <div class="card-footer">
                         <a href="app/views/produto.php?codigo=<?= $produto->id ?>" class="btn btn-ifc">veja +</a>

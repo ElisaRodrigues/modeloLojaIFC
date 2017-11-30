@@ -5,11 +5,11 @@
 
     $listaProdutos = $crud->getProdutos();
 
-    $codigo = filter_input(type: INPUT_GET, variable_name 'codigo', file(FILTER_VALIDATE_INT);
+    //$codigo = filter_input(type: INPUT_GET, variable_name 'codigo', file(FILTER_VALIDATE_INT);
 
-$produto =_?;
+    //$produto =_?;
 
-    ## !!ADICIONE AQUI O CABECALHO DA PAGINA
+    require_once "cabecalho.php";
 
 ?>
 <!--Barra de busca-->
@@ -37,11 +37,11 @@ $produto =_?;
     <tbody>
     <?php foreach ($listaProdutos as $produto): ?>
     <tr>
-        <th scope="row">mostre o código do produto</th>
-        <td>##mostre o nome</td>
-        <td>##mostre o preco</td>
-        <td>##mostre o estoque</td>
-        <td>##mostre a categoria</td>
+        <th scope="row"> <?=$produto->codigo?></th>
+        <td><?= $produto->titulo?></td>
+        <td><?= $produto->preco ?></td>
+        <td><?= $produto->estaDisponivel() ?></td>
+        <td><?= $produto->categoria ?></td>
         <td>##editar | remover</td>
     </tr>
    <?php endforeach; ?>
@@ -49,4 +49,4 @@ $produto =_?;
     </tbody>
 </table>
 
-<!-- ## ADICIONE AQUI O RODAPE DA PAGINA -->
+<?require_once "rodape.php";

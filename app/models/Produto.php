@@ -10,10 +10,9 @@ class Produto
     public $categoria;
     public $conexao;
     public $quantidade_estoque;
-    public $estoque;
     public $descricao;
 
-    public function __construct($titulo, $preco, $categoria, $estoque){
+    public function __construct($titulo, $preco, $categoria, $quantidade_estoque){
         $this->titulo = $titulo;
         $this->preco = $preco;
         $this->categoria = $categoria;
